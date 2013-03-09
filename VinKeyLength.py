@@ -1,7 +1,8 @@
 #!/usr/bin/python
 #Calculate the length of the key for a vigenere ciphertext
-import math,sys
-def Shift(l,n): #Shifts List L by N positions
+import math
+import sys
+def Rotate(l,n): #Rotates List L by N positions
 	l=list(l)
 	Shifted=l[n:]+l[:n]
 	return Shifted
@@ -19,12 +20,12 @@ def Frequency(p,k): #Finds the Frequency of K in set P
 def CyclicShift(p,n): #Shifts set P by N movements and returns matches
 	p = p.upper()
 	OriginalText = list(p)
-	ShiftedText = Shift(OriginalText,n) 
+	ShiftedText = Rotate(OriginalText,n) 
 	pLength = len(p)
 	TotalMatches = 0
 	for i in range (0,pLength):
 		if OriginalText[i] == ShiftedText[i]:
-			TotalMatches += 1
+			TotalMatches = TotalMatches +  1
 	return TotalMatches 
 
 #Actual Program starts here
